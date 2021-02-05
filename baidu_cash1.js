@@ -8,7 +8,7 @@
 ~~~~~~~~~~~~~~~~
 
 */
-const $ = new Env('百度极速版')
+const $ = new Env('百度极速版1')
 let CookieArr = [],cashArr=[];
 let UA = `Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 SP-engine/2.24.0 info baiduboxapp/5.1.1.10 (Baidu; P2 14.2)`;
 const notify = $.isNode() ? require('./sendNotify') : '';
@@ -16,37 +16,37 @@ const baiducks = $.getdata(`cookie_baidu`);
 const taskON = $.getdata(`task_baidu`)||"true"//除提现和兑换外其他任务开关
 
 if ($.isNode()) {
-  if (process.env.BAIDU_COOKIE && process.env.BAIDU_COOKIE.indexOf('&') > -1) {
-  BDCookie = process.env.BAIDU_COOKIE.split('&');
+  if (process.env.BAIDU_COOKIE1 && process.env.BAIDU_COOKIE1.indexOf('&') > -1) {
+  BDCookie1 = process.env.BAIDU_COOKIE1.split('&');
   }
- else if (process.env.BAIDU_COOKIE && process.env.BAIDU_COOKIE.indexOf('\n') > -1) {
-  BDCookie = process.env.BAIDU_COOKIE.split('\n');
+ else if (process.env.BAIDU_COOKIE1 && process.env.BAIDU_COOKIE1.indexOf('\n') > -1) {
+  BDCookie1 = process.env.BAIDU_COOKIE1.split('\n');
   } else {
-  BDCookie = process.env.BAIDU_COOKIE
+  BDCookie = process.env.BAIDU_COOKIE1
   };
-  if (process.env.BAIDU_CASH && process.env.BAIDU_CASH.indexOf('&') > -1) {
-  BDCASH = process.env.BAIDU_CASH.split('&');
+  if (process.env.BAIDU_CASH1 && process.env.BAIDU_CASH1.indexOf('&') > -1) {
+  BDCASH = process.env.BAIDU_CASH1.split('&');
   }
- else if (process.env.BAIDU_CASH && process.env.BAIDU_CASH.indexOf('\n') > -1) {
-  BDCASH = process.env.BAIDU_CASH.split('\n');
+ else if (process.env.BAIDU_CASH1 && process.env.BAIDU_CASH1.indexOf('\n') > -1) {
+  BDCASH = process.env.BAIDU_CASH1.split('\n');
   } else {
-  BDCASH = process.env.BAIDU_CASH
+  BDCASH1 = process.env.BAIDU_CASH1
   }
-  Object.keys(BDCookie).forEach((item) => {
-        if (BDCookie[item]) {
-          CookieArr.push(BDCookie[item])
+  Object.keys(BDCookie1).forEach((item) => {
+        if (BDCookie1[item]) {
+          CookieArr.push(BDCookie1[item])
         }
     });
-  Object.keys(BDCASH).forEach((item) => {
-        if (BDCASH[item]) {
-          cashArr.push(BDCASH[item])
+  Object.keys(BDCASH1).forEach((item) => {
+        if (BDCASH1[item]) {
+          cashArr.push(BDCASH1[item])
         }
     })
 } else if(baiducks && baiducks.indexOf('&')>-1){
-     BDCookie = baiducks.split("&")
-     Object.keys(BDCookie).forEach((item) => {
-     if (BDCookie[item]) {
-          CookieArr.push(BDCookie[item])
+     BDCookie1 = baiducks.split("&")
+     Object.keys(BDCookie1).forEach((item) => {
+     if (BDCookie1[item]) {
+          CookieArr.push(BDCookie1[item])
         }
     })
 } else {
