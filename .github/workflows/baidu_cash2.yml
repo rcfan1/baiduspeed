@@ -1,5 +1,5 @@
 
-name: 百度提现
+name: 百度提现2
 on:
   workflow_dispatch:
   schedule:
@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
     env:
-        BAIDU_COOKIE: ${{ secrets.BAIDU_COOKIE1 }}
+        BAIDU_COOKIE2: ${{ secrets.BAIDU_COOKIE2 }}
         TZ: Asia/shanghai
     steps:
       - name: Checkout
@@ -23,12 +23,12 @@ jobs:
       - name: npm install
         run: |
           npm install
-      - name: '运行 【百度提现】'
-        if: env.BAIDU_COOKIE
+      - name: '运行 【百度提现2】'
+        if: env.BAIDU_COOKIE2
         run: |
-          node baidu_cash.js
+          node baidu_cash2.js
         env:
-          BAIDU_CASH: ${{ secrets.BAIDU_CASH }}
+          BAIDU_CASH2: ${{ secrets.BAIDU_CASH2 }}
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
           BARK_PUSH: ${{ secrets.BARK_PUSH }}
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
