@@ -1,27 +1,28 @@
 name: 步步宝
 
 on:
-    workflow_dispatch:
-    schedule:
-        - cron: "0 0-14/2 * * *"
-    watch:
-        types: [started]
-
+  
+  schedule: # 计划任务触发
+   - cron: '0 8-23/2 * * *'
+   
+  watch:
+    types: [started]
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        if: github.event.repository.owner.id == github.event.sender.id
-        steps:
-            - uses: actions/checkout@v1
-            - name: Use Node.js 10.x
-              uses: actions/setup-node@v1
-              with:
-                  node-version: 10.x
-            - name: npm install
-              run: |
-                  npm install
-            - name: "运行【步步宝】"
-              run: |
-                  node Task/BBB.js
-              env:
-                 BBB_CK: ${{ secrets.BBB_CK }}
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: 拉取代码
+        uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+            node-version: "12.x"
+      # 安装依赖包
+      - name: 安装依赖包
+        run: npm install
+        
+      - name: '运行步步宝脚本'  
+        run: node BBB_Task.js
+        env:
+          BBB_COOKIE: ${{ secrets.BBB_COOKIE }}
