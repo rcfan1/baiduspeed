@@ -32,7 +32,7 @@ let liveBody = null, fakeIOS = true
 const $ = new Env("聚看点")
 let sum = 0
 let cookiesArr = [
-  // '', // xz_jkd_appkey=xxx; JSESSIONID=xxx; UM_distinctid=xxx; （账号1ck）
+  // 'xz_jkd_appkey=df979cdb-05a7-448c-bece-92d5005a1247; JSESSIONID=E61FDF9FB7917274AC66477E57D7474F;', // xz_jkd_appkey=xxx; JSESSIONID=xxx; UM_distinctid=xxx; （账号1ck）
   // '', // xz_jkd_appkey=xxx; JSESSIONID=xxx; UM_distinctid=xxx; （账号2ck）
 ], cookie = '', message;
 let notify = !$.isNode() ? $.getdata("JKD_MSG") : !!process.env.JKD_NOTIFY
